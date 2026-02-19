@@ -105,7 +105,7 @@ const Home = () => {
                             margin: 0,
                             textShadow: '0 2px 10px rgba(0,0,0,0.3)',
                         }}>
-                            The Gateway to Prime Properties
+                            Tomorrow's Sustainability Today
                         </h2>
                     </div>
 
