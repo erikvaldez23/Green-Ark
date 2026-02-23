@@ -10,7 +10,7 @@ const ArkCrypto = () => {
             position: 'relative',
             padding: '20px',
             boxSizing: 'border-box',
-            overflowY: 'auto', // Enable vertical scrolling
+            overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
             gap: '20px',
@@ -20,48 +20,63 @@ const ArkCrypto = () => {
             */}
             <div style={{
                 width: '100%',
-                height: '85vh',
-                minHeight: '600px',
+                height: '65vh',
                 borderRadius: '30px',
                 overflow: 'hidden',
                 position: 'relative',
                 flexShrink: 0,
+                display: 'flex',
+                alignItems: 'center',
             }}>
-                <img
-                    src={heroImage}
-                    alt="Ark Crypto"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                        display: 'block',
-                    }}
-                />
-
-                {/* Gradient Overlay */}
+                {/* Left Side: Image */}
                 <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%)',
-                }}></div>
+                    flex: 1,
+                    height: '100%',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <img
+                        src={heroImage}
+                        alt="Ark Coin Logo"
+                        style={{
+                            maxWidth: '90%',
+                            maxHeight: '90%',
+                            objectFit: 'contain',
+                            display: 'block',
+                        }}
+                    />
+                </div>
 
-                {/* Text Content */}
+                {/* Right Side: Text Content */}
                 <div style={{
-                    position: 'absolute',
-                    bottom: '30px',
-                    left: '30px',
+                    flex: 1,
+                    // paddingRight: '60px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
                     color: '#fff',
                 }}>
                     <h1 style={{
                         fontFamily: "'Inter', sans-serif",
-                        fontSize: '4rem',
+                        fontSize: '4.5rem',
                         fontWeight: 700,
-                        margin: 0,
+                        margin: '0 0 15px 0',
                         lineHeight: 1.1,
-                        textShadow: '0 2px 10px rgba(0,0,0,0.3)',
                     }}>
-                        Ark Crypto
+                        Ark Coin
                     </h1>
+                    <p style={{
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: '1.25rem',
+                        color: '#ccc',
+                        lineHeight: 1.6,
+                        margin: 0,
+                        maxWidth: '600px',
+                        fontWeight: 400,
+                    }}>
+                        The future of decentralized finance. Unlocking new possibilities with secure, fast, and scalable technology built for the modern economy. Join the revolution and power your digital assets with Ark Coin.
+                    </p>
                 </div>
             </div>
 

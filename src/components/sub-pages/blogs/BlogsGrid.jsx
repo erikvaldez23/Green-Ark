@@ -25,16 +25,16 @@ const BlogsGrid = () => {
         <div style={{
             width: '100%',
             boxSizing: 'border-box',
-            marginTop: '60px',
+            // marginTop: '60px',
         }}>
-            <h2 style={{
+            {/* <h2 style={{
                 color: '#fff',
                 fontFamily: "'Inter', sans-serif",
                 fontSize: '2rem',
                 marginBottom: '30px',
             }}>
                 Latest Insights
-            </h2>
+            </h2> */}
 
             <div style={{
                 display: 'grid',
@@ -51,15 +51,27 @@ const BlogsGrid = () => {
 
 // Sub-component for individual card
 const BlogCard = ({ post }) => {
+    const [isHovered, setIsHovered] = React.useState(false);
+
     return (
-        <div style={{
-            borderRadius: '20px',
-            overflow: 'hidden',
-            position: 'relative',
-            height: '250px', // Fixed height for consistency
-            cursor: 'pointer',
-            border: '1px solid #333',
-        }}>
+        <div
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={{
+                borderRadius: '20px',
+                overflow: 'hidden',
+                position: 'relative',
+                height: '250px', // Fixed height for consistency
+                cursor: 'pointer',
+                border: '1px solid',
+                borderColor: isHovered ? 'rgba(255, 255, 255, 0.2)' : '#333',
+                transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
+                boxShadow: isHovered
+                    ? '0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.05)'
+                    : '0 4px 10px rgba(0, 0, 0, 0.2)',
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+        >
             {/* Background Image */}
             <img
                 src={post.image}
@@ -68,18 +80,20 @@ const BlogCard = ({ post }) => {
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    transition: 'transform 0.3s ease',
+                    transition: 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease',
+                    filter: isHovered ? 'brightness(1.1)' : 'brightness(1)',
                     display: 'block',
                 }}
-                onMouseOver={(e) => e.target.style.transform = 'scale(1.05)'}
-                onMouseOut={(e) => e.target.style.transform = 'scale(1)'}
             />
 
             {/* Gradient Overlay */}
             <div style={{
                 position: 'absolute',
                 top: 0, left: 0, right: 0, bottom: 0,
-                background: 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)',
+                background: isHovered
+                    ? 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)'
+                    : 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)',
+                transition: 'background 0.5s ease',
                 pointerEvents: 'none',
             }}></div>
 
@@ -90,16 +104,19 @@ const BlogCard = ({ post }) => {
                 left: '20px',
                 right: '20px',
                 pointerEvents: 'none', // Text doesn't block hover on image
+                transform: isHovered ? 'translateY(-5px)' : 'translateY(0)',
+                transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
             }}>
                 {/* Meta Row */}
                 <div style={{
                     display: 'flex',
                     gap: '15px',
                     fontSize: '0.75rem',
-                    color: '#ccc',
+                    color: isHovered ? '#fff' : '#ccc',
                     marginBottom: '8px',
                     fontFamily: "'Inter', sans-serif",
                     fontWeight: 500,
+                    transition: 'color 0.5s ease',
                 }}>
                     <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                         {post.date}

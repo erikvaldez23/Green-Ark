@@ -119,12 +119,23 @@ const Home = () => {
                         <button style={{
                             backgroundColor: '#111',
                             color: '#fff',
-                            border: 'none',
+                            border: '1px solid #333',
                             borderRadius: '30px',
                             padding: '12px 24px',
                             fontSize: '1rem',
                             cursor: 'pointer',
-                        }}>
+                            transition: 'all 0.3s ease',
+                        }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#222';
+                                e.currentTarget.style.transform = 'translateY(-2px)';
+                                e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = '#111';
+                                e.currentTarget.style.transform = 'none';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}>
                             Our Properties
                         </button>
                         <button style={{
@@ -138,8 +149,19 @@ const Home = () => {
                             display: 'flex',
                             alignItems: 'center',
                             gap: '8px',
-                            fontWeight: 600
-                        }}>
+                            fontWeight: 600,
+                            transition: 'all 0.3s ease',
+                        }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.backgroundColor = '#fff';
+                                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
+                                e.currentTarget.style.boxShadow = '0 10px 25px rgba(255,255,255,0.2)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.9)';
+                                e.currentTarget.style.transform = 'none';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}>
                             Inquire now <ArrowRight size={18} />
                         </button>
                     </div>
@@ -165,7 +187,20 @@ const Home = () => {
                         flexDirection: 'column',
                         justifyContent: 'center', // Center content vertically
                         padding: '30px',
-                    }}>
+                        border: '1px solid #222',
+                        transition: 'all 0.4s ease',
+                        cursor: 'default',
+                    }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-10px)';
+                            e.currentTarget.style.borderColor = '#DFC789';
+                            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'none';
+                            e.currentTarget.style.borderColor = '#222';
+                            e.currentTarget.style.boxShadow = 'none';
+                        }}>
                         <div style={{ position: 'absolute', top: '30px', right: '30px', animation: 'fadeIn 0.5s ease-in-out' }} key={`icon-${statsIndex}`}>
                             {stats[statsIndex].icon}
                         </div>
@@ -199,7 +234,20 @@ const Home = () => {
                         borderRadius: '30px',
                         position: 'relative',
                         overflow: 'hidden',
-                    }}>
+                        border: '1px solid #222',
+                        transition: 'all 0.4s ease',
+                        cursor: 'pointer',
+                    }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-10px)';
+                            e.currentTarget.style.borderColor = '#fff';
+                            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'none';
+                            e.currentTarget.style.borderColor = '#222';
+                            e.currentTarget.style.boxShadow = 'none';
+                        }}>
                         <ImageIcon size={32} color="#fff" style={{ position: 'absolute', top: '30px', right: '30px', zIndex: 10, opacity: 0.5 }} />
 
                         {galleryImages.map((img, index) => (
@@ -247,8 +295,20 @@ const Home = () => {
                         overflow: 'hidden',
                         padding: '30px',
                         boxSizing: 'border-box',
-                        border: '1px solid #222'
-                    }}>
+                        border: '1px solid #222',
+                        transition: 'all 0.4s ease',
+                        cursor: 'default',
+                    }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-10px)';
+                            e.currentTarget.style.borderColor = '#DFC789';
+                            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'none';
+                            e.currentTarget.style.borderColor = '#222';
+                            e.currentTarget.style.boxShadow = 'none';
+                        }}>
                         <h3 style={{
                             color: '#fff',
                             fontFamily: "'Inter', sans-serif",

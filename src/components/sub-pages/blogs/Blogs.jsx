@@ -21,8 +21,7 @@ const Blogs = () => {
             */}
             <div style={{
                 width: '100%',
-                height: '85vh',
-                minHeight: '600px',
+                height: '65vh',
                 borderRadius: '30px',
                 overflow: 'hidden',
                 position: 'relative',

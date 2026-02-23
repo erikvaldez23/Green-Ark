@@ -31,16 +31,15 @@ const PropertiesGrid = () => {
         <div style={{ width: '100%', boxSizing: 'border-box' }}>
             {/* Header */}
             <h3 style={{
-                color: '#DFC789', // Gold color
-                fontFamily: "'Inter', sans-serif",
+                // color: '#DFC789',
+                color: '#fff',
                 fontSize: '4rem',
                 fontWeight: 700,
-                textTransform: 'uppercase',
                 letterSpacing: '2px',
                 margin: '0 0 20px 0',
                 paddingLeft: '10px'
             }}>
-                Properties Showcase
+                Properties
             </h3>
 
             <div style={{
