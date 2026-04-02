@@ -39,7 +39,7 @@ const Blueprint = () => {
         }}>
             {/* Title */}
             <div style={{ width: '100%', textAlign: 'left' }}>
-                <h2 style={{
+                <h2 className="mobile-font-h1" style={{
                     color: '#fff',
                     fontFamily: "'Inter', sans-serif",
                     fontSize: '4rem',
@@ -59,7 +59,7 @@ const Blueprint = () => {
             </div>
 
             {/* Grid of Cards */}
-            <div style={{
+            <div className="mobile-grid-1" style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(4, 1fr)',
                 gap: '20px',
@@ -129,7 +129,7 @@ const Blueprint = () => {
                 marginTop: '40px',
                 textAlign: 'center',
             }}>
-                <p style={{
+                <p className="mobile-font-h1" style={{
                     color: accentColor,
                     fontFamily: "'Italiana', serif",
                     fontSize: '3.5rem',

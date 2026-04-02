@@ -60,7 +60,7 @@ const ArkProjectSpotlight = () => {
                     </h3>
 
                     {/* Project Title */}
-                    <h2 style={{
+                    <h2 className="mobile-font-h1" style={{
                         color: '#fff',
                         fontFamily: "'Inter', sans-serif",
                         fontSize: '3.5rem',

@@ -105,7 +105,7 @@ const PropertyDetails = () => {
                     }}>
                         {property.location}
                     </h4>
-                    <h1 style={{
+                    <h1 className="mobile-font-h1" style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: '4rem',
                         fontWeight: 700,

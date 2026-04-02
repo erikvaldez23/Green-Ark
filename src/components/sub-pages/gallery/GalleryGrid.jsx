@@ -23,7 +23,7 @@ const GalleryGrid = () => {
             padding: '0 20px', // Match parent padding if needed, or handled by parent
             boxSizing: 'border-box',
         }}>
-            <h2 style={{
+            <h2 className="mobile-font-h1" style={{
                 color: '#fff',
                 fontFamily: "'Inter', sans-serif",
                 fontSize: '2rem',
@@ -33,7 +33,7 @@ const GalleryGrid = () => {
                 Featured Collection
             </h2>
 
-            <div style={{
+            <div className="mobile-grid-1" style={{
                 display: 'grid',
                 // This creates a responsive grid that automatically adjusts columns
                 gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',

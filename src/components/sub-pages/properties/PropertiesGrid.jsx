@@ -30,7 +30,7 @@ const PropertiesGrid = () => {
     return (
         <div style={{ width: '100%', boxSizing: 'border-box' }}>
             {/* Header */}
-            <h3 style={{
+            <h3 className="mobile-font-h1" style={{
                 // color: '#DFC789',
                 color: '#fff',
                 fontSize: '4rem',

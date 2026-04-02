@@ -55,7 +55,7 @@ const Home = () => {
             `}</style>
 
             {/* TOP SECTION: HERO (65% Height) */}
-            <div style={{
+            <div className="mobile-height-auto mobile-padding-sm" style={{
                 height: '100%',
                 minHeight: '100vh',
                 display: 'flex',
@@ -90,14 +90,14 @@ const Home = () => {
                         background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%)',
                     }}></div>
 
-                    <div style={{
+                    <div className="mobile-width-full" style={{
                         position: 'absolute',
                         bottom: '30px',
                         left: '30px',
                         color: '#fff',
                         maxWidth: '60%',
                     }}>
-                        <h2 style={{
+                        <h2 className="mobile-font-h1" style={{
                             fontFamily: "'Inter', sans-serif",
                             fontSize: '3.5rem',
                             fontWeight: 700,
@@ -109,14 +109,14 @@ const Home = () => {
                         </h2>
                     </div>
 
-                    <div style={{
+                    <div className="mobile-width-full mobile-padding-sm" style={{
                         position: 'absolute',
                         bottom: '40px',
                         right: '60px',
                         display: 'flex',
                         gap: '15px'
                     }}>
-                        <button style={{
+                        <button className="mobile-hide" style={{
                             backgroundColor: '#111',
                             color: '#fff',
                             border: '1px solid #333',
@@ -168,11 +168,11 @@ const Home = () => {
                 </div>
 
                 {/* BOTTOM SECTION: DASHBOARD ROW (35% Height) */}
-                <div style={{
+                <div className="mobile-col mobile-height-auto" style={{
                     flex: '0.35',
                     display: 'flex',
                     gap: '20px',
-                    minHeight: '0', // Important for flex container nesting
+                    minHeight: '200px', // Adjusted to prevent squishing when stacked on desktop, and replaced flex 0 trick that breaks on mobile
                 }}>
                     {/* CARD 1: STATS (Carousel) */}
                     <div style={{

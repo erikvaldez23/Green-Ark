@@ -18,9 +18,9 @@ const ArkCrypto = () => {
             {/* 
               Hero Container 
             */}
-            <div style={{
+            <div className="mobile-col mobile-height-auto mobile-padding-sm" style={{
                 width: '100%',
-                height: '65vh',
+                height: '75vh',
                 borderRadius: '30px',
                 overflow: 'hidden',
                 position: 'relative',
@@ -49,7 +49,7 @@ const ArkCrypto = () => {
                 </div>
 
                 {/* Right Side: Text Content */}
-                <div style={{
+                <div className="mobile-width-full mobile-padding-sm" style={{
                     flex: 1,
                     // paddingRight: '60px',
                     display: 'flex',
@@ -57,7 +57,7 @@ const ArkCrypto = () => {
                     justifyContent: 'center',
                     color: '#fff',
                 }}>
-                    <h1 style={{
+                    <h1 className="mobile-font-h1" style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: '4.5rem',
                         fontWeight: 700,

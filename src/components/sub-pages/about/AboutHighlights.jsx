@@ -54,7 +54,7 @@ const AboutHighlights = () => {
                 gap: '20px',
                 maxWidth: '900px',
             }}>
-                <h2 style={{
+                <h2 className="mobile-font-h1" style={{
                     color: '#fff',
                     fontFamily: "'Inter', sans-serif",
                     fontSize: '3rem',

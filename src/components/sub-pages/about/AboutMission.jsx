@@ -20,7 +20,7 @@ const AboutMission = () => {
                 flexDirection: 'column',
                 gap: '20px',
             }}>
-                <h3 style={{
+                <h3 className="mobile-font-h1" style={{
                     color: '#e0e0e0',
                     fontFamily: "'Inter', sans-serif",
                     fontSize: '3.5rem', // Large, bold header
@@ -49,7 +49,7 @@ const AboutMission = () => {
                 flexDirection: 'column',
                 gap: '20px',
             }}>
-                <h3 style={{
+                <h3 className="mobile-font-h1" style={{
                     color: '#e0e0e0',
                     fontFamily: "'Inter', sans-serif",
                     fontSize: '3.5rem', // Large, bold header

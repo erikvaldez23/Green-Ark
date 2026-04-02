@@ -54,7 +54,7 @@ const About = () => {
                     left: '30px',
                     color: '#fff',
                 }}>
-                    <h1 style={{
+                    <h1 className="mobile-font-h1" style={{
                         fontFamily: "'Inter', sans-serif",
                         fontSize: '4rem',
                         fontWeight: 700,

@@ -34,7 +34,7 @@ const ArkUnlockFuture = () => {
         }}>
             {/* Main Section Header */}
             <div style={{ marginBottom: '60px', textAlign: 'left' }}>
-                <h3 style={{
+                <h3 className="mobile-font-h1" style={{
                     color: '#DFC789',
                     fontFamily: "'Inter', sans-serif",
                     fontSize: '3rem',
@@ -50,6 +50,7 @@ const ArkUnlockFuture = () => {
                 {features.map((feature, index) => (
                     <div
                         key={index}
+                        className="mobile-col mobile-gap-sm mobile-padding-sm"
                         style={{
                             display: 'flex',
                             alignItems: 'center',
@@ -70,7 +71,7 @@ const ArkUnlockFuture = () => {
                             }}>
                                 {feature.id}
                             </span>
-                            <h4 style={{
+                            <h4 className="mobile-font-h2" style={{
                                 fontFamily: "'Inter', sans-serif",
                                 fontSize: '2rem',
                                 fontWeight: 600,
