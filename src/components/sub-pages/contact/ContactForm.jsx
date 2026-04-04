@@ -8,7 +8,7 @@ const ContactForm = () => {
         borderBottom: '1px solid #222',
         borderRadius: 0,
         padding: '14px 0',
-        color: '#e0e0e0',
+        color: '#ffffff',
         fontFamily: "'Plus Jakarta Sans', sans-serif",
         fontSize: '1rem',
         fontWeight: 300,
@@ -39,7 +39,7 @@ const ContactForm = () => {
                     border-bottom-color: #DFC789 !important;
                 }
                 .cf-input::placeholder {
-                    color: #333;
+                    color: #777;
                     font-family: 'Plus Jakarta Sans', sans-serif;
                     font-weight: 300;
                 }
@@ -47,11 +47,11 @@ const ContactForm = () => {
                     -webkit-appearance: none;
                     appearance: none;
                     background: transparent;
-                    color: #333;
+                    color: #ffffff;
                 }
                 .cf-select option {
                     background: #0a0a0a;
-                    color: #e0e0e0;
+                    color: #ffffff;
                 }
                 .cf-row {
                     display: grid;
@@ -123,7 +123,7 @@ const ContactForm = () => {
                         <div style={{ position: 'relative' }}>
                             <select className="cf-input cf-select" style={inputStyle}>
                                 <option value="" disabled>Select...</option>
-                                <option value="france">France</option>
+                                <option value="france">United States</option>
                                 <option value="germany">Germany</option>
                                 <option value="switzerland">Switzerland</option>
                                 <option value="other">Other</option>
