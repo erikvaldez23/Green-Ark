@@ -46,32 +46,19 @@ const AboutHighlights = () => {
             backgroundColor: '#000', // Ensure dark background
             marginTop: '60px'
         }}>
-            {/* Descriptive Text */}
             {/* Text Section */}
             <div style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '20px',
+                gap: '16px',
                 maxWidth: '900px',
             }}>
-                <h2 className="mobile-font-h1" style={{
-                    color: '#fff',
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '3rem',
-                    fontWeight: 600,
-                    margin: 0,
-                    lineHeight: 1.1,
-                }}>
+                <span className="section-label">Our Story</span>
+                <span className="section-divider" />
+                <h2 className="section-heading mobile-font-h1" style={{ maxWidth: '800px' }}>
                     We're not just developers. We're system designers for the next century.
                 </h2>
-                <p style={{
-                    color: '#aaa',
-                    fontFamily: "'Inter', sans-serif",
-                    fontSize: '1.25rem',
-                    fontWeight: 300,
-                    lineHeight: '1.6',
-                    margin: 0,
-                }}>
+                <p className="section-body">
                     Premier commercial real estate investment company with a focus on high-value properties in emerging markets.
                 </p>
             </div>
@@ -85,8 +72,8 @@ const AboutHighlights = () => {
             }}>
                 {/* Card 1: Stats Carousel */}
                 <div style={{
-                    backgroundColor: '#111',
-                    borderRadius: '30px',
+                    backgroundColor: 'rgba(14,14,14,0.9)',
+                    borderRadius: '24px',
                     height: '250px',
                     padding: '30px',
                     boxSizing: 'border-box',
@@ -94,8 +81,8 @@ const AboutHighlights = () => {
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    border: '1px solid #222',
-                    overflow: 'hidden', // Hide overflow for slide effect if implemented, or just clean cut
+                    border: '1px solid #1a1a1a',
+                    overflow: 'hidden',
                 }}>
                     <div style={{
                         alignSelf: 'flex-end',
@@ -116,10 +103,10 @@ const AboutHighlights = () => {
                         opacity: 1, // To do real animation we'd need CSS keys or a library, sticking to state update for now
                     }}>
                         <div key={statsIndex} style={{ animation: 'fadeIn 0.5s ease-in-out' }}>
-                            <div style={{ fontSize: '3.5rem', fontWeight: 700, lineHeight: 1 }}>
+                            <div style={{ fontSize: '3.2rem', fontWeight: 700, lineHeight: 1, fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.03em', color: '#fff' }}>
                                 {stats[statsIndex].value}
                             </div>
-                            <span style={{ display: 'block', fontSize: '1rem', fontWeight: 400, opacity: 0.7, marginTop: '5px' }}>
+                            <span style={{ display: 'block', fontSize: '0.85rem', fontWeight: 400, opacity: 0.5, marginTop: '6px', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '0.05em', textTransform: 'uppercase', color: '#aaa' }}>
                                 {stats[statsIndex].label}
                             </span>
                         </div>
@@ -129,12 +116,12 @@ const AboutHighlights = () => {
                 {/* Card 2: Gallery Link & Carousel */}
                 <Link to="/gallery" style={{ textDecoration: 'none' }}>
                     <div style={{
-                        borderRadius: '30px',
+                        borderRadius: '24px',
                         height: '250px',
                         position: 'relative',
                         overflow: 'hidden',
                         cursor: 'pointer',
-                        border: '1px solid #222',
+                        border: '1px solid #1a1a1a',
                     }}>
                         {galleryImages.map((img, index) => (
                             <img
@@ -158,12 +145,13 @@ const AboutHighlights = () => {
 
                         <div style={{
                             position: 'absolute',
-                            bottom: '30px',
-                            left: '30px',
+                            bottom: '28px',
+                            left: '28px',
                             color: '#fff',
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '2rem',
-                            fontWeight: 700,
+                            fontFamily: "'Plus Jakarta Sans', sans-serif",
+                            fontSize: '1.3rem',
+                            fontWeight: 600,
+                            letterSpacing: '-0.01em',
                             zIndex: 2,
                         }}>
                             Our Gallery
@@ -185,21 +173,22 @@ const AboutHighlights = () => {
 
                 {/* Card 3: Locations */}
                 <div style={{
-                    backgroundColor: '#111',
-                    borderRadius: '30px',
+                    backgroundColor: 'rgba(14,14,14,0.9)',
+                    borderRadius: '24px',
                     height: '250px',
                     padding: '30px',
                     boxSizing: 'border-box',
                     position: 'relative',
                     overflow: 'hidden',
-                    border: '1px solid #222',
+                    border: '1px solid #1a1a1a',
                 }}>
                     <h3 style={{
                         color: '#fff',
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: '2rem',
-                        fontWeight: 700,
-                        margin: '0 0 20px 0',
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: '1.3rem',
+                        fontWeight: 600,
+                        margin: '0 0 16px 0',
+                        letterSpacing: '-0.01em',
                         position: 'relative',
                         zIndex: 2,
                     }}>

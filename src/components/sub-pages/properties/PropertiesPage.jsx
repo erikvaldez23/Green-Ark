@@ -52,17 +52,28 @@ const PropertiesPage = () => {
                 {/* Text Content */}
                 <div style={{
                     position: 'absolute',
-                    bottom: '60px',
-                    left: '60px',
+                    bottom: '50px',
+                    left: '50px',
                     color: '#fff',
                 }}>
+                    <span style={{
+                        display: 'block',
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: '0.65rem',
+                        fontWeight: 700,
+                        letterSpacing: '0.22em',
+                        textTransform: 'uppercase',
+                        color: '#DFC789',
+                        marginBottom: '12px',
+                    }}>Our Listings</span>
                     <h1 style={{
-                        fontFamily: "'Inter', sans-serif", // Matching Home hero font
-                        fontSize: '4rem',
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
                         fontWeight: 700,
                         margin: 0,
-                        lineHeight: 1.1,
-                        textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                        lineHeight: 1.05,
+                        letterSpacing: '-0.03em',
+                        textShadow: '0 2px 20px rgba(0,0,0,0.4)',
                     }}>
                         Property Showcase
                     </h1>

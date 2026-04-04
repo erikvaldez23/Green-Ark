@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImage from '../../../assets/gallery_pool.png'; // Using gallery specific image
+import heroImage from '../../../assets/gallery_pool.png';
 import GalleryGrid from './GalleryGrid';
 
 const Gallery = () => {
@@ -11,19 +11,17 @@ const Gallery = () => {
             position: 'relative',
             padding: '20px',
             boxSizing: 'border-box',
-            overflowY: 'auto', // Enable vertical scrolling
+            overflowY: 'auto',
             display: 'flex',
             flexDirection: 'column',
             gap: '20px',
         }}>
-            {/* 
-              Hero Container 
-            */}
+            {/* Hero */}
             <div style={{
                 width: '100%',
                 height: '85vh',
                 minHeight: '600px',
-                borderRadius: '30px',
+                borderRadius: '28px',
                 overflow: 'hidden',
                 position: 'relative',
                 flexShrink: 0,
@@ -31,42 +29,51 @@ const Gallery = () => {
                 <img
                     src={heroImage}
                     alt="Gallery Showcase"
-                    style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                        display: 'block',
-                    }}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                 />
 
-                {/* Gradient Overlay */}
+                {/* Multi-layer gradient */}
                 <div style={{
                     position: 'absolute',
-                    top: 0, left: 0, right: 0, bottom: 0,
-                    background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 50%)',
-                }}></div>
+                    inset: 0,
+                    background: `
+                        linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0) 100%),
+                        linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 60%)
+                    `,
+                }} />
 
-                {/* Text Content */}
+                {/* Text */}
                 <div style={{
                     position: 'absolute',
-                    bottom: '60px',
-                    left: '60px',
+                    bottom: '50px',
+                    left: '50px',
                     color: '#fff',
                 }}>
-                    <h1 className="mobile-font-h1" style={{
-                        fontFamily: "'Inter', sans-serif",
-                        fontSize: '4rem',
+                    <span style={{
+                        display: 'block',
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: '0.65rem',
                         fontWeight: 700,
+                        letterSpacing: '0.22em',
+                        textTransform: 'uppercase',
+                        color: '#DFC789',
+                        marginBottom: '12px',
+                    }}>Visual Narrative</span>
+                    <h1 className="mobile-font-h1" style={{
+                        fontFamily: "'Plus Jakarta Sans', sans-serif",
+                        fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                        fontWeight: 800,
                         margin: 0,
-                        lineHeight: 1.1,
-                        textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                        lineHeight: 1.05,
+                        letterSpacing: '-0.035em',
+                        textShadow: '0 4px 30px rgba(0,0,0,0.4)',
                     }}>
                         Gallery Showcase
                     </h1>
                 </div>
             </div>
 
-            {/* Properties Grid Section */}
+            {/* Gallery Grid */}
             <GalleryGrid />
         </div>
     );

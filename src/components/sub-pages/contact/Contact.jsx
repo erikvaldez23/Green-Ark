@@ -16,7 +16,8 @@ const Contact = () => {
             flexDirection: 'column',
             gap: '20px',
         }}>
-            <div style={{
+
+            {/* <div style={{
                 width: '100%',
                 height: '85vh',
                 minHeight: '600px',
@@ -59,7 +60,8 @@ const Contact = () => {
                         Contact Us
                     </h1>
                 </div>
-            </div>
+            </div> */}
+
 
             {/* Contact Form Section */}
             <ContactForm />

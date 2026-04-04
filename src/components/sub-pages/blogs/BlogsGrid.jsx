@@ -11,132 +11,191 @@ import img6 from '../../../assets/luxury_estate_hero.png';
 const BlogsGrid = () => {
     // Mock Data
     const blogPosts = [
-        { id: 1, date: 'Sep 27, 2025', category: 'Buying Tips', title: 'Top 10 Tips for First-Time Home Buyers', image: img1 },
-        { id: 2, date: 'Sep 27, 2025', category: 'Selling Tips', title: 'How to Stage Your Home for a Quick Sale', image: img2 },
-        { id: 3, date: 'Sep 27, 2025', category: 'Market Insights', title: 'Understanding Real Estate Market Trends in 2025', image: img3 },
-        { id: 4, date: 'Sep 27, 2025', category: 'Selling Tips', title: '5 Common Mistakes When Selling Your Home', image: img4 },
-        { id: 5, date: 'Sep 27, 2025', category: 'Investment Tips', title: 'How to Invest in Rental Properties Successfully', image: img5 },
-        { id: 6, date: 'Sep 27, 2025', category: 'Market Insights', title: 'Understanding Property Valuation Methods', image: img6 },
-        { id: 6, date: 'Sep 27, 2025', category: 'Market Insights', title: 'Understanding Property Valuation Methods', image: img6 },
-        { id: 6, date: 'Sep 27, 2025', category: 'Market Insights', title: 'Understanding Property Valuation Methods', image: img6 },
+        { id: 1, date: 'Oct 12, 2025', category: 'Buying Tips', title: 'Top 10 Tips for First-Time Home Buyers', image: img1 },
+        { id: 2, date: 'Oct 10, 2025', category: 'Selling Tips', title: 'How to Stage Your Home for a Quick Sale', image: img2 },
+        { id: 3, date: 'Oct 08, 2025', category: 'Market Insights', title: 'Market Trends to Watch in 2026', image: img3 },
+        { id: 4, date: 'Oct 05, 2025', category: 'Architecture', title: 'The Rise of Biophilic Design in Luxury Homes', image: img4 },
+        { id: 5, date: 'Oct 02, 2025', category: 'Investment', title: 'How to Invest in Rental Properties Successfully', image: img5 },
+        { id: 6, date: 'Sep 28, 2025', category: 'Technology', title: 'How Ark OS is Revolutionizing Smart Living', image: img6 },
+        { id: 7, date: 'Sep 25, 2025', category: 'Sustainability', title: 'Net-Zero Homes: The Future of Responsible Luxury', image: img4 },
+        { id: 8, date: 'Sep 22, 2025', category: 'Lifestyle', title: 'Curating the Ultimate Home Wellness Sanctuary', image: img2 },
     ];
 
     return (
         <div style={{
             width: '100%',
             boxSizing: 'border-box',
-            // marginTop: '60px',
+            paddingTop: '40px',
+            paddingBottom: '80px',
         }}>
-            {/* <h2 style={{
-                color: '#fff',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: '2rem',
-                marginBottom: '30px',
-            }}>
-                Latest Insights
-            </h2> */}
+            <style>{`
+                .blogs-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                    gap: 24px;
+                    width: 100%;
+                }
+                .blog-card {
+                    position: relative;
+                    height: 380px;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    background: #0a0a0a;
+                    border: 1px solid #1a1a1a;
+                    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+                }
+                .blog-card:hover {
+                    transform: translateY(-8px);
+                    border-color: #2a2a2a;
+                    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+                }
+                .blog-card-img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+                    opacity: 0.7;
+                }
+                .blog-card:hover .blog-card-img {
+                    transform: scale(1.08);
+                    opacity: 0.85;
+                }
+                .blog-card-overlay {
+                    position: absolute;
+                    inset: 0;
+                    background: linear-gradient(to top, 
+                        rgba(0,0,0,0.95) 0%, 
+                        rgba(0,0,0,0.4) 50%, 
+                        rgba(0,0,0,0.1) 100%);
+                    transition: background 0.5s ease;
+                }
+                .blog-card:hover .blog-card-overlay {
+                    background: linear-gradient(to top, 
+                        rgba(0,0,0,1) 0%, 
+                        rgba(0,0,0,0.5) 50%, 
+                        rgba(0,0,0,0.2) 100%);
+                }
+                .blog-card-content {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    padding: 32px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 12px;
+                }
+                .blog-card-category {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    font-size: 0.65rem;
+                    font-weight: 700;
+                    letter-spacing: 0.15em;
+                    text-transform: uppercase;
+                    color: #DFC789;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                }
+                .blog-card-category::before {
+                    content: '';
+                    width: 12px;
+                    height: 1px;
+                    background: #DFC789;
+                }
+                .blog-card-title {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    color: #fff;
+                    margin: 0;
+                    line-height: 1.25;
+                    letter-spacing: -0.02em;
+                    transition: color 0.3s ease;
+                }
+                .blog-card:hover .blog-card-title {
+                    color: #fff;
+                }
+                .blog-card-meta {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    font-size: 0.8rem;
+                    font-weight: 400;
+                    color: #555;
+                    margin-top: 4px;
+                    display: flex;
+                    align-items: center;
+                    gap: 12px;
+                    transition: color 0.3s ease;
+                }
+                .blog-card:hover .blog-card-meta {
+                    color: #888;
+                }
+                .blog-card-arrow {
+                    position: absolute;
+                    top: 32px;
+                    right: 32px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    border: 1px solid rgba(255,255,255,0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    transform: translateX(10px);
+                    opacity: 0;
+                    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+                }
+                .blog-card:hover .blog-card-arrow {
+                    transform: translateX(0);
+                    opacity: 1;
+                    border-color: #DFC789;
+                    color: #DFC789;
+                }
+                @media (max-width: 768px) {
+                    .blogs-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+                    .blog-card {
+                        height: 320px;
+                    }
+                    .blog-card-arrow {
+                        display: none;
+                    }
+                }
+            `}</style>
 
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '20px',
-            }}>
-                {blogPosts.map(post => (
-                    <BlogCard key={post.id} post={post} />
-                ))}
+            {/* Section Header */}
+            <div className="section-animate" style={{ marginBottom: '40px' }}>
+                <span className="section-label">Latest Insights</span>
+                <span className="section-divider" />
             </div>
-        </div>
-    );
-};
 
-// Sub-component for individual card
-const BlogCard = ({ post }) => {
-    const [isHovered, setIsHovered] = React.useState(false);
+            {/* Grid */}
+            <div className="blogs-grid">
+                {blogPosts.map((post) => (
+                    <div key={post.id} className="blog-card">
+                        <img src={post.image} alt={post.title} className="blog-card-img" />
+                        <div className="blog-card-overlay" />
+                        
+                        <div className="blog-card-arrow">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <line x1="7" y1="17" x2="17" y2="7" />
+                                <polyline points="7 7 17 7 17 17" />
+                            </svg>
+                        </div>
 
-    return (
-        <div
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            style={{
-                borderRadius: '20px',
-                overflow: 'hidden',
-                position: 'relative',
-                height: '250px', // Fixed height for consistency
-                cursor: 'pointer',
-                border: '1px solid',
-                borderColor: isHovered ? 'rgba(255, 255, 255, 0.2)' : '#333',
-                transform: isHovered ? 'translateY(-8px)' : 'translateY(0)',
-                boxShadow: isHovered
-                    ? '0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.05)'
-                    : '0 4px 10px rgba(0, 0, 0, 0.2)',
-                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-            }}
-        >
-            {/* Background Image */}
-            <img
-                src={post.image}
-                alt={post.title}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    transition: 'transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), filter 0.8s ease',
-                    filter: isHovered ? 'brightness(1.1)' : 'brightness(1)',
-                    display: 'block',
-                }}
-            />
-
-            {/* Gradient Overlay */}
-            <div style={{
-                position: 'absolute',
-                top: 0, left: 0, right: 0, bottom: 0,
-                background: isHovered
-                    ? 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.3) 60%, rgba(0,0,0,0.1) 100%)'
-                    : 'linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%)',
-                transition: 'background 0.5s ease',
-                pointerEvents: 'none',
-            }}></div>
-
-            {/* Content Content - Bottom aligned */}
-            <div style={{
-                position: 'absolute',
-                bottom: '20px',
-                left: '20px',
-                right: '20px',
-                pointerEvents: 'none', // Text doesn't block hover on image
-                transform: isHovered ? 'translateY(-5px)' : 'translateY(0)',
-                transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-            }}>
-                {/* Meta Row */}
-                <div style={{
-                    display: 'flex',
-                    gap: '15px',
-                    fontSize: '0.75rem',
-                    color: isHovered ? '#fff' : '#ccc',
-                    marginBottom: '8px',
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 500,
-                    transition: 'color 0.5s ease',
-                }}>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        {post.date}
-                    </span>
-                    <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                        {post.category}
-                    </span>
-                </div>
-
-                {/* Title */}
-                <h3 style={{
-                    color: '#fff',
-                    margin: 0,
-                    fontSize: '1rem',
-                    fontFamily: "'Inter', sans-serif",
-                    fontWeight: 600,
-                    lineHeight: '1.4',
-                }}>
-                    {post.title}
-                </h3>
+                        <div className="blog-card-content">
+                            <span className="blog-card-category">{post.category}</span>
+                            <h3 className="blog-card-title">{post.title}</h3>
+                            <div className="blog-card-meta">
+                                <span>{post.date}</span>
+                                <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#333' }} />
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );

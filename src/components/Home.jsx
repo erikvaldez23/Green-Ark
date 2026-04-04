@@ -10,10 +10,10 @@ const Home = () => {
     // Stats Carousel State
     const [statsIndex, setStatsIndex] = useState(0);
     const stats = [
-        { value: '25+', label: 'Years of Experience', icon: <Clock size={32} color="#DFC789" /> },
-        { value: '500+', label: 'Happy Clients', icon: <Building2 size={32} color="#DFC789" /> },
-        { value: '12', label: 'Years Experience', icon: <TrendingUp size={32} color="#DFC789" /> },
-        { value: '100+', label: 'Projects Completed', icon: <Trophy size={32} color="#DFC789" /> }
+        { value: '25+', label: 'Years of Experience', icon: <Clock size={28} color="#DFC789" strokeWidth={1.5} /> },
+        { value: '500+', label: 'Happy Clients', icon: <Building2 size={28} color="#DFC789" strokeWidth={1.5} /> },
+        { value: '12', label: 'Years Experience', icon: <TrendingUp size={28} color="#DFC789" strokeWidth={1.5} /> },
+        { value: '100+', label: 'Projects Completed', icon: <Trophy size={28} color="#DFC789" strokeWidth={1.5} /> }
     ];
 
     // Gallery Carousel State
@@ -45,16 +45,87 @@ const Home = () => {
             boxSizing: 'border-box',
             display: 'flex',
             flexDirection: 'column',
-            animation: 'fadeIn 0.5s ease-in-out',
+            backgroundColor: '#000',
         }}>
             <style>{`
                 @keyframes fadeIn {
                     from { opacity: 0; transform: translateY(10px); }
                     to { opacity: 1; transform: translateY(0); }
                 }
+                .home-hero-btn {
+                    padding: 14px 28px;
+                    border-radius: 40px;
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    letter-spacing: 0.05em;
+                    text-transform: uppercase;
+                    cursor: pointer;
+                    transition: all 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+                .home-hero-btn-primary {
+                    background: #fff;
+                    color: #000;
+                    border: none;
+                }
+                .home-hero-btn-primary:hover {
+                    background: #DFC789;
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 20px rgba(223,199,137,0.2);
+                }
+                .home-hero-btn-ghost {
+                    background: rgba(0,0,0,0.4);
+                    color: #fff;
+                    border: 1px solid rgba(255,255,255,0.15);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                }
+                .home-hero-btn-ghost:hover {
+                    border-color: #DFC789;
+                    color: #DFC789;
+                    background: rgba(223,199,137,0.05);
+                    transform: translateY(-2px);
+                }
+                .dashboard-card {
+                    background: rgba(14, 14, 14, 0.9);
+                    border: 1px solid #1a1a1a;
+                    border-radius: 28px;
+                    padding: 32px;
+                    box-sizing: border-box;
+                    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+                    position: relative;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .dashboard-card:hover {
+                    border-color: #2a2a2a;
+                    transform: translateY(-5px);
+                    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+                }
+                .card-label {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    font-size: 0.65rem;
+                    font-weight: 700;
+                    letter-spacing: 0.15em;
+                    color: #444;
+                    text-transform: uppercase;
+                    margin-top: 6px;
+                }
+                .card-title {
+                    font-family: 'Plus Jakarta Sans', sans-serif;
+                    font-size: 1.5rem;
+                    font-weight: 700;
+                    color: #fff;
+                    margin: 0;
+                    letter-spacing: -0.02em;
+                }
             `}</style>
 
-            {/* TOP SECTION: HERO (65% Height) */}
+            {/* TOP SECTION: HERO & DASHBOARD */}
             <div className="mobile-height-auto mobile-padding-sm" style={{
                 height: '100%',
                 minHeight: '100vh',
@@ -65,190 +136,111 @@ const Home = () => {
                 boxSizing: 'border-box',
                 flexShrink: 0
             }}>
-                {/* TOP SECTION: HERO (65% Height) */}
-                <div style={{
+                {/* HERO (65% Height) */}
+                <div className="mobile-100vh" style={{
                     flex: '0.65',
                     position: 'relative',
                     width: '100%',
-                    borderRadius: '30px',
+                    borderRadius: '28px',
                     overflow: 'hidden',
                 }}>
                     <img
                         src={heroImage}
                         alt="Luxury Estate"
-                        style={{
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            display: 'block',
-                        }}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
 
+                    {/* Multi-layer Gradient */}
                     <div style={{
                         position: 'absolute',
-                        top: 0, left: 0, right: 0, bottom: 0,
-                        background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%)',
-                    }}></div>
+                        inset: 0,
+                        background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%)',
+                    }} />
 
-                    <div className="mobile-width-full" style={{
+                    {/* Hero Text */}
+                    <div className="mobile-hero-text" style={{
                         position: 'absolute',
-                        bottom: '30px',
-                        left: '30px',
+                        bottom: '44px',
+                        left: '44px',
                         color: '#fff',
-                        maxWidth: '60%',
+                        maxWidth: '600px',
                     }}>
-                        <h2 className="mobile-font-h1" style={{
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '3.5rem',
+                        <span style={{
+                            display: 'block',
+                            fontFamily: "'Plus Jakarta Sans', sans-serif",
+                            fontSize: '0.65rem',
                             fontWeight: 700,
-                            lineHeight: 1.1,
+                            letterSpacing: '0.22em',
+                            textTransform: 'uppercase',
+                            color: '#DFC789',
+                            marginBottom: '16px',
+                        }}>Architecture for the Next Century</span>
+                        <h2 className="mobile-font-h1" style={{
+                            fontFamily: "'Plus Jakarta Sans', sans-serif",
+                            fontSize: 'clamp(2.5rem, 5vw, 4.2rem)',
+                            fontWeight: 800,
+                            lineHeight: 1.05,
+                            letterSpacing: '-0.04em',
                             margin: 0,
-                            textShadow: '0 2px 10px rgba(0,0,0,0.3)',
+                            textShadow: '0 4px 30px rgba(0,0,0,0.4)',
                         }}>
-                            Tomorrow's Sustainability Today
+                            Tomorrow's Sustainability Today.
                         </h2>
-                    </div>
-
-                    <div className="mobile-width-full mobile-padding-sm" style={{
-                        position: 'absolute',
-                        bottom: '40px',
-                        right: '60px',
-                        display: 'flex',
-                        gap: '15px'
-                    }}>
-                        <button className="mobile-hide" style={{
-                            backgroundColor: '#111',
-                            color: '#fff',
-                            border: '1px solid #333',
-                            borderRadius: '30px',
-                            padding: '12px 24px',
-                            fontSize: '1rem',
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                        }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = '#222';
-                                e.currentTarget.style.transform = 'translateY(-2px)';
-                                e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = '#111';
-                                e.currentTarget.style.transform = 'none';
-                                e.currentTarget.style.boxShadow = 'none';
-                            }}>
-                            Our Properties
-                        </button>
-                        <button style={{
-                            backgroundColor: 'rgba(255,255,255,0.9)',
-                            color: '#000',
-                            border: 'none',
-                            borderRadius: '30px',
-                            padding: '12px 24px',
-                            fontSize: '1rem',
-                            cursor: 'pointer',
+                        
+                        <div className="mobile-hero-buttons" style={{
                             display: 'flex',
-                            alignItems: 'center',
-                            gap: '8px',
-                            fontWeight: 600,
-                            transition: 'all 0.3s ease',
-                        }}
-                            onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = '#fff';
-                                e.currentTarget.style.transform = 'translateY(-2px) scale(1.02)';
-                                e.currentTarget.style.boxShadow = '0 10px 25px rgba(255,255,255,0.2)';
-                            }}
-                            onMouseLeave={(e) => {
-                                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.9)';
-                                e.currentTarget.style.transform = 'none';
-                                e.currentTarget.style.boxShadow = 'none';
-                            }}>
-                            Inquire now <ArrowRight size={18} />
-                        </button>
+                            gap: '12px',
+                            marginTop: '32px'
+                        }}>
+                            <button className="home-hero-btn home-hero-btn-primary">
+                                Inquire Now <ArrowRight size={16} />
+                            </button>
+                            <button className="home-hero-btn home-hero-btn-ghost">
+                                Our Properties
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                {/* BOTTOM SECTION: DASHBOARD ROW (35% Height) */}
+                {/* DASHBOARD ROW (35% Height) */}
                 <div className="mobile-col mobile-height-auto" style={{
                     flex: '0.35',
                     display: 'flex',
                     gap: '20px',
-                    minHeight: '200px', // Adjusted to prevent squishing when stacked on desktop, and replaced flex 0 trick that breaks on mobile
+                    minHeight: '220px',
                 }}>
-                    {/* CARD 1: STATS (Carousel) */}
-                    <div style={{
-                        flex: 1,
-                        backgroundColor: 'rgba(17, 17, 17, 0.6)',
-                        backdropFilter: 'blur(10px)',
-                        WebkitBackdropFilter: 'blur(10px)',
-                        borderRadius: '30px',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center', // Center content vertically
-                        padding: '30px',
-                        border: '1px solid #222',
-                        transition: 'all 0.4s ease',
-                        cursor: 'default',
-                    }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-10px)';
-                            e.currentTarget.style.borderColor = '#DFC789';
-                            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'none';
-                            e.currentTarget.style.borderColor = '#222';
-                            e.currentTarget.style.boxShadow = 'none';
-                        }}>
-                        <div style={{ position: 'absolute', top: '30px', right: '30px', animation: 'fadeIn 0.5s ease-in-out' }} key={`icon-${statsIndex}`}>
+                    {/* CARD 1: STATS */}
+                    <div className="dashboard-card mobile-card-height" style={{ flex: 1 }}>
+                        <div style={{ position: 'absolute', top: '32px', right: '32px' }}>
                             {stats[statsIndex].icon}
                         </div>
-
-                        <div style={{
-                            color: '#fff',
-                            fontFamily: "'Inter', sans-serif",
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'flex-end', // Align bottom similar to previous layout? 
-                            // Previous layout used flex-end. Let's stick closer to center/bottom.
-                            height: '100%',
-                        }}>
-                            <div key={statsIndex} style={{ animation: 'fadeIn 0.5s ease-in-out', marginTop: 'auto' }}>
-                                <div style={{ fontSize: '3.5rem', fontWeight: 700, lineHeight: 1 }}>
+                        <div style={{ marginTop: 'auto' }}>
+                            <div key={statsIndex} style={{ animation: 'fadeIn 0.5s ease-in-out' }}>
+                                <div style={{ 
+                                    fontFamily: "'Plus Jakarta Sans', sans-serif",
+                                    fontSize: '3rem', 
+                                    fontWeight: 800, 
+                                    lineHeight: 1, 
+                                    color: '#fff',
+                                    letterSpacing: '-0.04em'
+                                }}>
                                     {stats[statsIndex].value}
                                 </div>
-                                <span style={{ display: 'block', fontSize: '1rem', fontWeight: 400, opacity: 0.7, marginTop: '5px', color: '#999' }}>
-                                    {stats[statsIndex].label}
-                                </span>
+                                <div className="card-label">{stats[statsIndex].label}</div>
                             </div>
                         </div>
                     </div>
 
-                    {/* CARD 2: GALLERY (Carousel) */}
-                    <div style={{
-                        flex: 1,
-                        backgroundColor: 'rgba(17, 17, 17, 0.6)',
-                        backdropFilter: 'blur(10px)',
-                        WebkitBackdropFilter: 'blur(10px)',
-                        borderRadius: '30px',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        border: '1px solid #222',
-                        transition: 'all 0.4s ease',
-                        cursor: 'pointer',
-                    }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-10px)';
-                            e.currentTarget.style.borderColor = '#fff';
-                            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'none';
-                            e.currentTarget.style.borderColor = '#222';
-                            e.currentTarget.style.boxShadow = 'none';
+                    {/* CARD 2: GALLERY */}
+                    <div className="dashboard-card mobile-card-height" style={{ flex: 1, padding: 0, cursor: 'pointer' }}>
+                        <div style={{
+                            position: 'absolute', top: '32px', right: '32px', zIndex: 10,
+                            width: '40px', height: '40px', borderRadius: '50%',
+                            background: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)',
+                            display: 'flex', alignItems: 'center', justifyContent: 'center'
                         }}>
-                        <ImageIcon size={32} color="#fff" style={{ position: 'absolute', top: '30px', right: '30px', zIndex: 10, opacity: 0.5 }} />
+                            <ImageIcon size={18} color="#fff" strokeWidth={1.5} />
+                        </div>
 
                         {galleryImages.map((img, index) => (
                             <img
@@ -261,94 +253,68 @@ const Home = () => {
                                     objectFit: 'cover',
                                     display: 'block',
                                     position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    opacity: index === galleryIndex ? 1 : 0,
+                                    inset: 0,
+                                    opacity: index === galleryIndex ? 0.7 : 0,
                                     transition: 'opacity 1s ease, transform 1s ease',
                                     transform: index === galleryIndex ? 'scale(1.05)' : 'scale(1)',
                                 }}
                             />
                         ))}
+                        
+                        <div style={{
+                            position: 'absolute',
+                            inset: 0,
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
+                        }} />
 
                         <div style={{
                             position: 'absolute',
-                            bottom: '30px',
-                            left: '30px',
-                            color: '#fff',
-                            fontWeight: 700,
-                            fontSize: '2rem',
+                            bottom: '32px',
+                            left: '32px',
                             zIndex: 10,
-                            textShadow: '0 2px 10px rgba(0,0,0,0.5)'
                         }}>
-                            Our Gallery
+                            <h3 className="card-title" style={{ fontSize: '1.4rem' }}>Our Gallery</h3>
+                            <div className="card-label" style={{ color: '#aaa', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                                View Collection <ArrowRight size={10} />
+                            </div>
                         </div>
                     </div>
 
-                    {/* CARD 3: INNOVATION PILLARS */}
-                    <div style={{
-                        flex: 1,
-                        backgroundColor: 'rgba(17, 17, 17, 0.6)',
-                        backdropFilter: 'blur(10px)',
-                        WebkitBackdropFilter: 'blur(10px)',
-                        borderRadius: '30px',
-                        position: 'relative',
-                        overflow: 'hidden',
-                        padding: '30px',
-                        boxSizing: 'border-box',
-                        border: '1px solid #222',
-                        transition: 'all 0.4s ease',
-                        cursor: 'default',
-                    }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.transform = 'translateY(-10px)';
-                            e.currentTarget.style.borderColor = '#DFC789';
-                            e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.4)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.transform = 'none';
-                            e.currentTarget.style.borderColor = '#222';
-                            e.currentTarget.style.boxShadow = 'none';
-                        }}>
-                        <h3 style={{
-                            color: '#fff',
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '2rem',
-                            fontWeight: 700,
-                            margin: '0 0 20px 0',
-                            position: 'relative',
-                            zIndex: 2,
-                        }}>
+                    {/* CARD 3: PILLARS */}
+                    <div className="dashboard-card mobile-card-height" style={{ flex: 1 }}>
+                        <h3 className="card-title" style={{ fontSize: '1.4rem', marginBottom: '16px' }}>
                             Innovation Pillars
                         </h3>
 
                         <div style={{
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '5px',
-                            color: '#ccc',
-                            fontFamily: "'Inter', sans-serif",
-                            fontSize: '1.2rem',
+                            gap: '6px',
+                            fontFamily: "'Plus Jakarta Sans', sans-serif",
+                            fontSize: '0.9rem',
+                            fontWeight: 300,
+                            color: '#777',
                             position: 'relative',
                             zIndex: 2,
                         }}>
-                            <span>Innovation 1</span>
-                            <span>Innovation 2</span>
-                            <span>Innovation 3</span>
+                            <span style={{ color: '#aaa' }}>01 — Smart Systems</span>
+                            <span>02 — Net Zero Energy</span>
+                            <span>03 — Adaptive Life</span>
                         </div>
 
-                        {/* Globe Image positioned on the right */}
+                        {/* Globe Image */}
                         <img
                             src={darkGlobe}
                             alt="Globe"
                             style={{
                                 position: 'absolute',
-                                right: '-50px',
-                                top: '10%',
-                                height: '140%',
+                                right: '-40px',
+                                bottom: '-20px',
+                                height: '110%',
                                 objectFit: 'contain',
-                                opacity: 0.8,
+                                opacity: 0.15,
                                 pointerEvents: 'none',
-                                zIndex: 1,
+                                mixBlendMode: 'screen',
                             }}
                         />
                     </div>

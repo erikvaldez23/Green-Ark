@@ -30,17 +30,11 @@ const PropertiesGrid = () => {
     return (
         <div style={{ width: '100%', boxSizing: 'border-box' }}>
             {/* Header */}
-            <h3 className="mobile-font-h1" style={{
-                // color: '#DFC789',
-                color: '#fff',
-                fontSize: '4rem',
-                fontWeight: 700,
-                letterSpacing: '2px',
-                margin: '0 0 20px 0',
-                paddingLeft: '10px'
-            }}>
-                Properties
-            </h3>
+            <div style={{ marginBottom: '12px' }}>
+                <span className="section-label">Our Listings</span>
+                <span className="section-divider" />
+                <h3 className="section-heading mobile-font-h1">Properties</h3>
+            </div>
 
             <div style={{
                 padding: '20px 0',
@@ -99,17 +93,18 @@ const PropertiesGrid = () => {
                             transform: hoveredIndex === index ? 'translateY(0)' : 'translateY(0)', // Keep stable or animate? Standard position is better.
                         }}>
                             <h3 style={{
-                                fontFamily: "'Inter', sans-serif",
-                                fontSize: '2rem',
+                                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                                fontSize: '1.5rem',
                                 fontWeight: 700,
                                 margin: 0,
                                 lineHeight: 1.1,
+                                letterSpacing: '-0.02em',
                             }}>
                                 {prop.title}
                             </h3>
 
                             <p style={{
-                                fontFamily: "'Inter', sans-serif",
+                                fontFamily: "'Plus Jakarta Sans', sans-serif",
                                 fontSize: '1rem',
                                 fontWeight: 400,
                                 color: '#ccc',
@@ -134,7 +129,7 @@ const PropertiesGrid = () => {
                                 overflow: 'hidden',
                             }}>
                                 <p style={{
-                                    fontFamily: "'Inter', sans-serif",
+                                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                                     fontSize: '0.95rem',
                                     fontWeight: 300,
                                     color: '#ddd',
@@ -154,7 +149,7 @@ const PropertiesGrid = () => {
                                     fontWeight: 600,
                                     cursor: 'pointer',
                                     width: 'fit-content',
-                                    fontFamily: "'Inter', sans-serif",
+                                    fontFamily: "'Plus Jakarta Sans', sans-serif",
                                 }}
                                     onClick={(e) => {
                                         e.stopPropagation(); // Prevent parent click if parent has one
