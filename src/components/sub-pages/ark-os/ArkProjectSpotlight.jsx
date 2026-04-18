@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import projectImage from '../../../assets/listing_prestige.png';
 
 const ArkProjectSpotlight = () => {
+    const navigate = useNavigate();
     return (
         <div style={{
             width: '100%',
@@ -173,7 +175,7 @@ const ArkProjectSpotlight = () => {
                         The world's first fully autonomous luxury residence. Powered by Ark OS — adapts to your lifestyle, managing energy, security, and ambiance with predictive AI.
                     </p>
 
-                    <button className="spotlight-btn">
+                    <button className="spotlight-btn" onClick={() => navigate('/property/4')}>
                         View Details
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <line x1="5" y1="12" x2="19" y2="12" />

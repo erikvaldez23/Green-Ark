@@ -1,9 +1,17 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import heroImage from '../../../assets/listing_harmony.png'; // Using listing_harmony as placeholder
 import AboutHighlights from './AboutHighlights';
 import AboutMission from './AboutMission';
 
 const About = () => {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": "About Green Ark",
+        "description": "Learn about Green Ark's mission to reshape luxury real estate through sustainability and Ark OS."
+    };
+
     return (
         <div style={{
             flex: 1,
@@ -17,6 +25,17 @@ const About = () => {
             flexDirection: 'column',
             gap: '20px',
         }}>
+            <Helmet>
+                <title>About Us | Green Ark</title>
+                <meta name="description" content="Learn about Green Ark's mission to reshape luxury real estate through sustainability and decentralized technology." />
+                <link rel="canonical" href="https://www.greenark.com/about" />
+                <meta property="og:title" content="About Us | Green Ark" />
+                <meta property="og:description" content="Learn about Green Ark's mission to reshape luxury real estate through sustainability and decentralized technology." />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
+
             {/* 
               Hero Container 
             */}

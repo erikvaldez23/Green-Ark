@@ -1,30 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import opulenceImg from '../../../assets/listing_opulence.png';
-import harmonyImg from '../../../assets/listing_harmony.png';
-import prestigeImg from '../../../assets/listing_prestige.png';
-import poolImg from '../../../assets/gallery_pool.png';
-import bedroomImg from '../../../assets/gallery_bedroom.png';
-import heroImg from '../../../assets/luxury_estate_hero.png';
-
-// Mock Data
-const properties = [
-    { title: 'The Azure Villa', subtitle: "Coastal Luxury", description: "Experience unparalleled ocean views and modern design in this exclusive coastal retreat.", image: poolImg },
-    { title: 'Opulence Estate', subtitle: "Historic Grandeur", description: "A masterpiece of architecture featuring sprawling gardens and timeless elegance.", image: opulenceImg },
-    { title: 'Serenity Heights', subtitle: "Mountain Escape", description: "Find peace above the clouds with this sustainable, off-grid mountain sanctuary.", image: bedroomImg },
-    { title: 'Prestige Manor', subtitle: "Urban Sophistication", description: "Located in the heart of the city, offering world-class amenities and privacy.", image: prestigeImg },
-    { title: 'Harmony Home', subtitle: "Eco-Friendly Living", description: "Designed in harmony with nature, featuring net-zero energy systems.", image: harmonyImg },
-    { title: 'Legacy Ranch', subtitle: "Countryside Estate", description: "Acres of pristine land perfect for equestrian pursuits and private living.", image: heroImg },
-    { title: 'The Vertex', subtitle: "Modern Penthouse", description: "Sky-high luxury with panoramic city views and smart home integration.", image: harmonyImg },
-    { title: 'Golden Sands', subtitle: "Beachfront Paradise", description: "Direct beach access with private dunes and resort-style facilities.", image: opulenceImg },
-];
+import propertyData from './propertyData';
 
 const PropertiesGrid = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const navigate = useNavigate();
 
-    const handleLearnMore = (index) => {
-        navigate(`/property/${index + 1}`);
+    const handleLearnMore = (property) => {
+        navigate(`/property/${property.id}`);
     };
 
     return (
@@ -42,8 +25,8 @@ const PropertiesGrid = () => {
                 gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
                 gap: '20px',
             }}>
-                {properties.map((prop, index) => (
-                    <div key={index} style={{
+                {propertyData.map((prop, index) => (
+                    <div key={prop.id} style={{
                         position: 'relative',
                         height: '400px', // Increased height to accommodate content
                         borderRadius: '30px',
@@ -58,7 +41,7 @@ const PropertiesGrid = () => {
                         onMouseLeave={() => setHoveredIndex(null)}
                     >
                         <img
-                            src={prop.image}
+                            src={prop.heroImage}
                             alt={prop.title}
                             style={{
                                 width: '100%',
@@ -89,8 +72,7 @@ const PropertiesGrid = () => {
                             color: '#fff',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '10px',
-                            transform: hoveredIndex === index ? 'translateY(0)' : 'translateY(0)', // Keep stable or animate? Standard position is better.
+                            gap: '8px',
                         }}>
                             <h3 style={{
                                 fontFamily: "'Plus Jakarta Sans', sans-serif",
@@ -105,55 +87,38 @@ const PropertiesGrid = () => {
 
                             <p style={{
                                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                                fontSize: '1rem',
+                                fontSize: '0.9rem',
                                 fontWeight: 400,
-                                color: '#ccc',
+                                color: '#aaa',
                                 margin: 0,
-                                opacity: hoveredIndex === index ? 0 : 1, // Hide subtitle on hover to make room? Or keep? User asked for description BELOW header.
-                                height: hoveredIndex === index ? '0' : 'auto',
-                                overflow: 'hidden',
-                                transition: 'all 0.3s ease',
                             }}>
                                 {prop.subtitle}
                             </p>
 
-                            {/* Hover Content Wrapper */}
+                            {/* Learn More button — fades in on hover */}
                             <div style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '15px',
-                                maxHeight: hoveredIndex === index ? '200px' : '0',
+                                maxHeight: hoveredIndex === index ? '60px' : '0',
                                 opacity: hoveredIndex === index ? 1 : 0,
-                                transform: hoveredIndex === index ? 'translateY(0)' : 'translateY(20px)',
-                                transition: 'all 0.4s ease',
+                                transform: hoveredIndex === index ? 'translateY(0)' : 'translateY(10px)',
+                                transition: 'all 0.35s ease',
                                 overflow: 'hidden',
+                                marginTop: '4px',
                             }}>
-                                <p style={{
-                                    fontFamily: "'Plus Jakarta Sans', sans-serif",
-                                    fontSize: '0.95rem',
-                                    fontWeight: 300,
-                                    color: '#ddd',
-                                    margin: 0,
-                                    lineHeight: 1.5,
-                                }}>
-                                    {prop.description}
-                                </p>
-
                                 <button style={{
                                     backgroundColor: '#DFC789',
                                     color: '#000',
                                     border: 'none',
                                     borderRadius: '20px',
                                     padding: '10px 24px',
-                                    fontSize: '0.9rem',
+                                    fontSize: '0.85rem',
                                     fontWeight: 600,
                                     cursor: 'pointer',
-                                    width: 'fit-content',
                                     fontFamily: "'Plus Jakarta Sans', sans-serif",
+                                    letterSpacing: '0.02em',
                                 }}
                                     onClick={(e) => {
-                                        e.stopPropagation(); // Prevent parent click if parent has one
-                                        handleLearnMore(index);
+                                        e.stopPropagation();
+                                        handleLearnMore(prop);
                                     }}
                                 >
                                     Learn More

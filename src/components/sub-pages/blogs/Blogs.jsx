@@ -1,8 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import heroImage from '../../../assets/luxury_estate_hero.png';
 import BlogsGrid from './BlogsGrid';
 
 const Blogs = () => {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Green Ark Blog",
+        "description": "Insights on sustainable luxury real estate, DeFi, and smart home technology."
+    };
+
     return (
         <div style={{
             flex: 1,
@@ -16,6 +24,17 @@ const Blogs = () => {
             flexDirection: 'column',
             gap: '20px',
         }}>
+            <Helmet>
+                <title>Insights & Perspectives | Green Ark Blogs</title>
+                <meta name="description" content="Read the latest insights from Green Ark on sustainable real estate, smart technology, and property investment." />
+                <link rel="canonical" href="https://www.greenark.com/blogs" />
+                <meta property="og:title" content="Insights & Perspectives | Green Ark Blogs" />
+                <meta property="og:description" content="Read the latest insights from Green Ark on sustainable real estate, smart technology, and property investment." />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
+
             {/* Hero */}
             <div style={{
                 width: '100%',

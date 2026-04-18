@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import heroImage from '../assets/luxury_estate_hero.png';
 import galleryPool from '../assets/gallery_pool.png';
 import galleryBedroom from '../assets/gallery_bedroom.png';
@@ -7,6 +8,7 @@ import { ArrowRight, Image as ImageIcon, Clock, Building2, TrendingUp, Trophy } 
 import Blueprint from './Blueprint';
 
 const Home = () => {
+    const navigate = useNavigate();
     // Stats Carousel State
     const [statsIndex, setStatsIndex] = useState(0);
     const stats = [
@@ -67,12 +69,12 @@ const Home = () => {
                     gap: 10px;
                 }
                 .home-hero-btn-primary {
-                    background: #fff;
+                    background: #DFC789;
                     color: #000;
                     border: none;
                 }
                 .home-hero-btn-primary:hover {
-                    background: #DFC789;
+                    background: #fff;
                     transform: translateY(-2px);
                     box-shadow: 0 10px 20px rgba(223,199,137,0.2);
                 }
@@ -186,16 +188,16 @@ const Home = () => {
                         }}>
                             Tomorrow's Sustainability Today.
                         </h2>
-                        
+
                         <div className="mobile-hero-buttons" style={{
                             display: 'flex',
                             gap: '12px',
                             marginTop: '32px'
                         }}>
-                            <button className="home-hero-btn home-hero-btn-primary">
+                            <button className="home-hero-btn home-hero-btn-primary" onClick={() => navigate('/contact')}>
                                 Inquire Now <ArrowRight size={16} />
                             </button>
-                            <button className="home-hero-btn home-hero-btn-ghost">
+                            <button className="home-hero-btn home-hero-btn-ghost" onClick={() => navigate('/ark-os')}>
                                 Our Properties
                             </button>
                         </div>
@@ -216,11 +218,11 @@ const Home = () => {
                         </div>
                         <div style={{ marginTop: 'auto' }}>
                             <div key={statsIndex} style={{ animation: 'fadeIn 0.5s ease-in-out' }}>
-                                <div style={{ 
+                                <div style={{
                                     fontFamily: "'Plus Jakarta Sans', sans-serif",
-                                    fontSize: '3rem', 
-                                    fontWeight: 800, 
-                                    lineHeight: 1, 
+                                    fontSize: '3rem',
+                                    fontWeight: 800,
+                                    lineHeight: 1,
                                     color: '#fff',
                                     letterSpacing: '-0.04em'
                                 }}>
@@ -260,7 +262,7 @@ const Home = () => {
                                 }}
                             />
                         ))}
-                        
+
                         <div style={{
                             position: 'absolute',
                             inset: 0,

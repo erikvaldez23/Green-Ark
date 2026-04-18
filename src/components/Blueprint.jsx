@@ -155,53 +155,67 @@ const Blueprint = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '0',
-                padding: '60px 20px',
-                borderTop: '1px solid #1a1a1a',
-                borderBottom: '1px solid #1a1a1a',
+                padding: '80px 40px 60px',
+                borderTop: '1px solid #111',
                 position: 'relative',
+                overflow: 'hidden',
             }}>
-                {/* Decorative quotemark */}
-                <span style={{
-                    fontFamily: "'Italiana', serif",
-                    fontSize: '8rem',
-                    lineHeight: 1,
-                    color: '#1a1a1a',
-                    userSelect: 'none',
-                    marginBottom: '-20px',
-                }}>"</span>
+                {/* Ambient glow behind quote */}
+                <div style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '600px',
+                    height: '300px',
+                    background: 'radial-gradient(ellipse, rgba(223,199,137,0.04) 0%, transparent 70%)',
+                    pointerEvents: 'none',
+                }} />
 
+                {/* Gold rule above */}
+                <div style={{
+                    width: '1px',
+                    height: '48px',
+                    background: 'linear-gradient(to bottom, transparent, #DFC789)',
+                }} />
+
+                {/* Quote text */}
                 <p style={{
                     fontFamily: "'Italiana', serif",
-                    fontSize: 'clamp(1.6rem, 3vw, 2.6rem)',
+                    fontSize: 'clamp(1.8rem, 4vw, 3.5rem)',
                     fontStyle: 'italic',
-                    color: '#c0c0c0',
-                    margin: '0 0 28px 0',
-                    lineHeight: 1.35,
+                    color: '#e8e8e8',
+                    margin: '0 0 52px 0',
+                    lineHeight: 1.3,
                     textAlign: 'center',
-                    maxWidth: '680px',
+                    maxWidth: '780px',
                     fontWeight: 400,
+                    letterSpacing: '0.01em',
                 }}>
                     The best way to predict the future is to create it.
                 </p>
 
-                {/* Author line */}
+                {/* Attribution */}
                 <div style={{
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '16px',
+                    gap: '20px',
                 }}>
-                    <div style={{ width: '30px', height: '1px', background: '#333' }} />
+                    <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to right, transparent, #2a2a2a)' }} />
+                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#DFC789', display: 'inline-block', flexShrink: 0 }} />
                     <span style={{
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontSize: '0.65rem',
-                        fontWeight: 700,
-                        letterSpacing: '0.2em',
+                        fontWeight: 600,
+                        letterSpacing: '0.22em',
                         textTransform: 'uppercase',
                         color: '#444',
-                    }}>Person</span>
-                    <div style={{ width: '30px', height: '1px', background: '#333' }} />
+                    }}>Ryan — CEO, Green Ark</span>
+                    <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#DFC789', display: 'inline-block', flexShrink: 0 }} />
+                    <div style={{ width: '40px', height: '1px', background: 'linear-gradient(to left, transparent, #2a2a2a)' }} />
                 </div>
+
+
             </div>
         </div>
     );

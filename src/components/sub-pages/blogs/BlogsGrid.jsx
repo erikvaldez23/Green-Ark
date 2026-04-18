@@ -1,25 +1,9 @@
 import React from 'react';
-
-// Importing existing assets for mock data
-import img1 from '../../../assets/listing_opulence.png';
-import img2 from '../../../assets/gallery_bedroom.png';
-import img3 from '../../../assets/listing_harmony.png';
-import img4 from '../../../assets/gallery_pool.png';
-import img5 from '../../../assets/listing_prestige.png';
-import img6 from '../../../assets/luxury_estate_hero.png';
+import { useNavigate } from 'react-router-dom';
+import { blogData } from './blogData';
 
 const BlogsGrid = () => {
-    // Mock Data
-    const blogPosts = [
-        { id: 1, date: 'Oct 12, 2025', category: 'Buying Tips', title: 'Top 10 Tips for First-Time Home Buyers', image: img1 },
-        { id: 2, date: 'Oct 10, 2025', category: 'Selling Tips', title: 'How to Stage Your Home for a Quick Sale', image: img2 },
-        { id: 3, date: 'Oct 08, 2025', category: 'Market Insights', title: 'Market Trends to Watch in 2026', image: img3 },
-        { id: 4, date: 'Oct 05, 2025', category: 'Architecture', title: 'The Rise of Biophilic Design in Luxury Homes', image: img4 },
-        { id: 5, date: 'Oct 02, 2025', category: 'Investment', title: 'How to Invest in Rental Properties Successfully', image: img5 },
-        { id: 6, date: 'Sep 28, 2025', category: 'Technology', title: 'How Ark OS is Revolutionizing Smart Living', image: img6 },
-        { id: 7, date: 'Sep 25, 2025', category: 'Sustainability', title: 'Net-Zero Homes: The Future of Responsible Luxury', image: img4 },
-        { id: 8, date: 'Sep 22, 2025', category: 'Lifestyle', title: 'Curating the Ultimate Home Wellness Sanctuary', image: img2 },
-    ];
+    const navigate = useNavigate();
 
     return (
         <div style={{
@@ -173,8 +157,8 @@ const BlogsGrid = () => {
 
             {/* Grid */}
             <div className="blogs-grid">
-                {blogPosts.map((post) => (
-                    <div key={post.id} className="blog-card">
+                {blogData.map((post) => (
+                    <div key={post.id} className="blog-card" onClick={() => navigate(`/blog/${post.id}`)}>
                         <img src={post.image} alt={post.title} className="blog-card-img" />
                         <div className="blog-card-overlay" />
                         
@@ -191,7 +175,7 @@ const BlogsGrid = () => {
                             <div className="blog-card-meta">
                                 <span>{post.date}</span>
                                 <span style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#333' }} />
-                                <span>5 min read</span>
+                                <span>{post.readTime}</span>
                             </div>
                         </div>
                     </div>

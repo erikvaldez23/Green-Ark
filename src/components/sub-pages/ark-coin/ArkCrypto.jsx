@@ -1,8 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import heroImage from '/coin2.png';
 import ArkUnlockFuture from './ArkUnlockFuture';
 
 const ArkCrypto = () => {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Ark Coin (ARK)",
+        "description": "The cryptocurrency built for real world assets bridging DeFi and luxury real estate."
+    };
+
     const stats = [
         { label: 'Total Supply', value: '100M', unit: 'ARK' },
         { label: 'Holders', value: '12.4K', unit: '+' },
@@ -23,6 +31,17 @@ const ArkCrypto = () => {
             flexDirection: 'column',
             gap: '0',
         }}>
+            <Helmet>
+                <title>Ark Coin (ARK) | Asset-Backed Cryptocurrency</title>
+                <meta name="description" content="Ark Coin (ARK) bridges the gap between decentralized finance and tangible real estate value. Secure, scalable, and built with purpose." />
+                <link rel="canonical" href="https://www.greenark.com/ark-crypto" />
+                <meta property="og:title" content="Ark Coin (ARK) | Asset-Backed Cryptocurrency" />
+                <meta property="og:description" content="Ark Coin (ARK) bridges the gap between decentralized finance and tangible real estate value. Secure, scalable, and built with purpose." />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
+            
             <style>{`
                 @keyframes coinFloat {
                     0%, 100% { transform: translateY(0px) rotate(0deg); }

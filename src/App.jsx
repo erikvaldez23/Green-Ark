@@ -8,6 +8,7 @@ import PropertyDetails from './components/sub-pages/properties/PropertyDetails';
 import Gallery from './components/sub-pages/gallery/Gallery';
 import About from './components/sub-pages/about/About';
 import Blogs from './components/sub-pages/blogs/Blogs';
+import BlogDetails from './components/sub-pages/blogs/BlogDetails';
 import Contact from './components/sub-pages/contact/Contact';
 import ArkCrypto from './components/sub-pages/ark-coin/ArkCrypto';
 import ArkOS from './components/sub-pages/ark-os/ArkOS';
@@ -37,10 +38,12 @@ function App() {
           <div className="mobile-width-full mobile-height-auto" style={{ flex: 1, height: '100%', overflow: 'hidden' }}>
             <Routes>
               <Route path="/" element={<HomeWrapper />} />
+              <Route path="/properties" element={<PropertiesPage />} />
               <Route path="/property/:id" element={<PropertyDetails />} />
               <Route path="/gallery" element={<Gallery />} />
               <Route path="/about" element={<About />} />
               <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blog/:id" element={<BlogDetails />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/ark-crypto" element={<ArkCrypto />} />
               <Route path="/ark-os" element={<ArkOS />} />

@@ -1,8 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import heroImage from '../../../assets/listing_prestige.png'; // Using listing_prestige as distinctive hero
 import ContactForm from './ContactForm';
 
 const Contact = () => {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contact Green Ark",
+        "description": "Get in touch with Green Ark to inquire about sustainable luxury real estate opportunities."
+    };
+
     return (
         <div style={{
             flex: 1,
@@ -16,6 +24,16 @@ const Contact = () => {
             flexDirection: 'column',
             gap: '20px',
         }}>
+            <Helmet>
+                <title>Contact Us | Green Ark</title>
+                <meta name="description" content="Get in touch with Green Ark to inquire about our sustainable luxury real estate properties and investment opportunities." />
+                <link rel="canonical" href="https://www.greenark.com/contact" />
+                <meta property="og:title" content="Contact Us | Green Ark" />
+                <meta property="og:description" content="Get in touch with Green Ark to inquire about our sustainable luxury real estate properties and investment opportunities." />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
 
             {/* <div style={{
                 width: '100%',

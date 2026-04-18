@@ -1,8 +1,16 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import heroImage from '../../../assets/gallery_pool.png';
 import GalleryGrid from './GalleryGrid';
 
 const Gallery = () => {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "Green Ark Gallery",
+        "description": "A visual showcase of Green Ark's sustainable luxury real estate."
+    };
+
     return (
         <div style={{
             flex: 1,
@@ -16,6 +24,17 @@ const Gallery = () => {
             flexDirection: 'column',
             gap: '20px',
         }}>
+            <Helmet>
+                <title>Gallery Showcase | Green Ark</title>
+                <meta name="description" content="Explore our visual narrative. A showcase of Green Ark's sustainable luxury real estate portfolio." />
+                <link rel="canonical" href="https://www.greenark.com/gallery" />
+                <meta property="og:title" content="Gallery Showcase | Green Ark" />
+                <meta property="og:description" content="Explore our visual narrative. A showcase of Green Ark's sustainable luxury real estate portfolio." />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
+
             {/* Hero */}
             <div style={{
                 width: '100%',
